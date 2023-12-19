@@ -1,4 +1,4 @@
-##Learn vue.js
+## Learn vue.js
 
 Can use with CDN without installing but not a good approach.
 Now install node js https://nodejs.org/en/download/
@@ -120,6 +120,18 @@ NOTE:  /savecred is not compatible with /smartcard.
 Package.json contains all the node package installed 
 package.lock.json is lock file which contain detail info about the node modules
 .gitignore ignore the node module in the remote repository.
-
 In public folder contains the html file which is loade dwhen apps run
 Firstly main.js is compiled
+
+A app.vue structure is:
+```
+<template>
+   html code
+</template>
+<script>
+   js code
+</script>
+<style>
+   css code
+</style>
+```
