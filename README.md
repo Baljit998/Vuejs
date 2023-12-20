@@ -283,3 +283,115 @@ export default {
     }
 </style>
 ```
+
+## Events in Vue js
+Create a button and pass a function for the button. Learned on click, dbl click and mouse move parameters. And change data by clicking on button.
+```
+<template>
+    <h1 v-on:mousemove="getConsole()">Home component {{10+10}}</h1>
+    <button v-on:click="getData()">Click Me</button>
+    <button v-on:dblclick="getData('Button Double clicked')">Click Me</button>
+    <h2>{{count}}</h2>
+</template>
+<script>
+export default {
+    name:'HomeComp',
+    data()
+    {
+        return{
+            count:0
+        }
+    },
+    methods:{
+        getData()
+        {
+            this.count=this.count+1;
+        },
+        getConsole()
+        {
+            console.warn("function called")
+        }
+    }
+    
+}
+</script>
+
+<style scoped>
+    h1{
+        color:red
+    }
+</style>
+```
+
+## Two-way Binding in Vuejs
+it saves complexity . it bind property with vue and model. model is js code in script tag and vue is in the template tag. We use v-model=count.
+```
+<template>
+    <h1>Two way binding</h1>    
+    <input type="text" v-model="count" />
+    <h2>{{ count }}</h2>
+</template>
+<script>
+export default {
+    name:'HomeComp',
+    data()
+    {
+        return {
+            count:10
+        }
+    }
+    
+}
+</script>
+
+<style scoped>
+    h1{
+        color:red
+    }
+</style>
+```
+## Get input field value
+Make 2 input field
+Make function to get value
+define data property 
+apply two vay binding 
+output is visible in console
+```
+<template>
+<h1>Get input field value</h1>
+<input type="text" placeholder="enter email" v-model="email" />
+<br />
+<br />
+<input type="text" placeholder="enter password" v-model="password" />
+<br />
+<br />
+<button v-on:click="getData()" type="button">Get Values</button>
+</template>
+
+<script>
+export default {
+    name: 'HomeComp',
+    data()
+    {
+        return{
+            email:null,
+            password:null,
+        }
+    },
+    methods:
+    {
+        getData(){
+        console.warn("values:", this.email,this.password)
+    }
+    }
+
+}
+</script>
+
+<style scoped>
+h1 {
+    color: red
+}
+</style>
+
+```
