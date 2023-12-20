@@ -242,7 +242,7 @@ export default {
     }
 </style>
 ```
-## Define an duse method:
+## Define and use method with parameter:
 Data property is we use scripts tag to create function and and use function with this property and use method. also create amd use function multiple time.
 ```
 <template>
@@ -395,3 +395,5 @@ h1 {
 </style>
 
 ```
+## Get checkbox and Radio Button value
+Make checkbox and radio button with label
