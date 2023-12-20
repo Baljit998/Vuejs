@@ -396,4 +396,135 @@ h1 {
 
 ```
 ## Get checkbox and Radio Button value
-Make checkbox and radio button with label
+Make checkbox and radio button with label. Print value of checkbox and Radio button values
+```
+<template>
+<h1>Get CheckBox & Radio Button Value</h1>
+<h3>Technology</h3>
+<label for="c">C</label>
+<input type="checkbox" value="c" id="c" v-model="technology" />
+
+<label for="php">PHP</label>
+<input type="checkbox" value="php" id="php" v-model="technology" />
+
+<label for="node">Node</label>
+<input type="checkbox" value="node" id="node"  v-model="technology" />
+<h4> Selected Technology: {{ technology }}</h4>
+<h4>I am a :{{ who }}</h4>
+
+<br /> <br />
+<h3>Who Am I</h3>
+<label for="node">Student</label>
+<input type="radio" value="student" name="who" id="student" v-model="who" />
+
+<label for="node">Developer</label>
+<input type="radio" value="developer" name="who" id="developer" v-model="who"  />
+
+
+</template>
+
+<script>
+export default {
+    name: 'HomeComp',
+    data()
+    {
+        return{
+            technology:[],
+            who:null
+        }
+    }
+
+}
+</script>
+
+<style scoped>
+h1 {
+    color: red
+}
+</style>
+
+```
+## Conditional rendering(if-else)
+Get value from html using conditions. Toggle if else using button
+```
+<template>
+<h1 v-if="show">If Else Condition</h1>
+<h1 v-else>Else Condition</h1>
+<button v-on:click="show=!show" type="T">Toggle</button>
+
+</template>
+
+<script>
+export default {
+    name: 'HomeComp',
+    data()
+    {
+        return{
+            show:true
+        }
+    }
+
+
+}
+</script>
+
+<style scoped>
+h1 {
+    color: red
+}
+</style>
+
+```
+## For Loop in vuejs
+Define array and apply loop and define array of object using for loop
+```
+<template>
+<h1>For Loop in Vue js</h1>
+<ul>
+    <li v-for="item in technology" :key="item">
+        {{ item }}
+
+    </li>
+</ul>
+<br />
+<br />
+<ul>
+    <li v-for="item in user" :key="item.email">
+        Name is : {{ item.name }} and Email is : {{ item.email }}
+
+    </li>
+</ul>
+</template>
+
+<script>
+export default {
+    name: 'HomeComp',
+    data() {
+        return {
+            technology: ['c', 'php', 'html', 'node'],
+            user: [{
+                    name: "Baljit",
+                    email: "baljit@gmail.com"
+                },
+                {
+                    name: "Aman",
+                    email: "amant@gmail.com"
+                },
+                {
+                    name: "Ram",
+                    email: "ram@gmail.com"
+                },
+            ]
+        }
+    }
+
+}
+</script>
+
+<style scoped>
+h1 {
+    color: red
+}
+</style>
+
+```
