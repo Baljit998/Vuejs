@@ -136,6 +136,8 @@ A app.vue structure is:
    css code
 </style>
 ```
+
+### day 2
 ## Component
 
 Componenet can be search bar and header, about and footer etc. Mainly we can reuse the header components for all the pages.
@@ -193,6 +195,85 @@ Add some css and apply scope so that stype can be binded to a component and will
 <script>
 export default {
     name:'HomeComp',
+}
+</script>
+
+<style scoped>
+    h1{
+        color:red
+    }
+</style>
+```
+
+## Interpolation and Data
+it helps to use js function and variable inside the vue components.
+We can create function, Assign value to a variable. And we can assign value in thetemplate part of vue js 
+```
+<template>
+    <h1>Home component {{10+10}}</h1>
+    <h1>Home component {{"helllo".length}}</h1>
+    <h1>Email:{{ email }}</h1>
+    <h1>mobile:{{ mobile }}</h1>
+    <h1>mobile:{{ mobile=88888 }}</h1>
+
+    <h1>Name:{{ getName("Singh")}}</h1>
+
+
+</template>
+<script>
+export default {
+    name:'HomeComp',
+    data(){
+
+        return{
+            email:'balsehra445@gmail.com',
+            mobile:878767665,
+            getName:function(a){
+                return a;
+            }
+        }
+    }
+}
+</script>
+
+<style scoped>
+    h1{
+        color:red
+    }
+</style>
+```
+## Define an duse method:
+Data property is we use scripts tag to create function and and use function with this property and use method. also create amd use function multiple time.
+```
+<template>
+    <h1>Home component {{10+10}}</h1>
+    <h1>Email:{{ email }}</h1>
+    <h1>Name :{{ getName("Peter") }}</h1>
+    <h1>Name 2 :{{ getName("Stark") }}</h1>
+    <h1>All data :{{ getData().email }}</h1>
+
+</template>
+<script>
+export default {
+    name:'HomeComp',
+    data(){
+
+        return{
+            email:'balsehra445@gmail.com',
+           
+        }
+    }, 
+    methods:{
+        getName(name){
+            return name;
+        },
+        getData(){
+            return {
+                name: "baljit",
+                email: this.email
+            }
+        }
+    }
 }
 </script>
 
