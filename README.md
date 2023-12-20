@@ -664,3 +664,37 @@ h1 {
 </style>
 
 ```
+## Html Binding
+apply Html Binding and 2 html tag binding 
+When we want to add dynamic data
+```
+<template>
+<h1>{{ text }}</h1>
+<div v-html="tag">
+ </div>
+<div v-html="tag2">
+
+</div>
+</template>
+
+<script>
+export default {
+    name: 'HomeComp',
+    data() {
+        return {
+            text: "baljit Singh",
+            tag: "<h1>Baljit</h1>",
+            tag2: "<h1>Baljit@gamil.com</h1>"
+
+        }
+    }
+
+}
+</script>
+
+<style scoped>
+h1 {
+    color: red
+}
+</style>
+```
