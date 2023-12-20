@@ -528,3 +528,139 @@ h1 {
 </style>
 
 ```
+## Pass Data to Child Components
+Make child component
+Import and use child components
+Pass Static Data
+Pass Property object and function to child component
+Created a new component in Child.vue
+```
+<template>
+    <h2>{{name}}</h2>
+    <h2>{{ user.name }}</h2>
+    <button v-on:click="getData()">Call function</button>
+</template>
+
+<script>
+export default{
+    name: 'ChildNew',
+    props:{
+        name:String,
+        user:Object,
+        getData:Function
+    }
+}
+</script>
+```
+And Home.vue is
+```
+<template>
+    <h2>{{name}}</h2>
+    <h2>{{ user.name }}</h2>
+    <button v-on:click="getData()">Call function</button>
+</template>
+
+<script>
+export default{
+    name: 'ChildNew',
+    props:{
+        name:String,
+        user:Object,
+        getData:Function
+    }
+}
+</script>
+```
+## Reuse Components
+Make Child Component
+Import and use Child components
+apply for loop in array
+Pass Property to child table
+
+Created User.vue
+```
+<template>
+<div class="user">
+    <h2>{{ data.name }}</h2>
+    <h2>{{ data.email }}</h2>
+    <button v-on:click="getData(data.name)">Alert name</button>
+</div>
+
+</template>
+<script>
+export  default{
+    name:'userNew',
+    props:{
+        data:Object,
+        getData:Function
+    },
+}
+</script>
+<style>
+.user{
+    background-color: aquamarine;
+    padding: 10px;
+    border-bottom: 1px solid;
+    margin-top: 20px;
+
+}
+</style>
+```
+
+and Home.vue is
+```
+<template>
+<h1>Pass data to Child component</h1>
+<ul>
+    <li v-for="item in users" :key="item.name">
+        <UserNew :data="item" :getData="getData" />
+    </li>
+</ul>
+
+</template>
+
+<script>
+import UserNew from './User.vue'
+export default {
+    name: 'HomeComp',
+    components: {
+        UserNew
+    },
+    methods:{
+        getData(name)
+        {
+            alert(name)
+        }
+    },
+    data() {
+        return {
+            users: [{
+                    name: "baljit",
+                    email: "baljit@hma.com"
+                },
+                {
+                    name: "Sam",
+                    email: "samt@hma.com"
+                },
+                {
+                    name: "bruce",
+                    email: "bruce@hma.com"
+                },
+                {
+                    name: "aman",
+                    email: "aman@hma.com"
+                }
+            ]
+        }
+    }
+
+}
+</script>
+
+<style scoped>
+h1 {
+    color: red
+}
+</style>
+
+```
