@@ -138,4 +138,67 @@ A app.vue structure is:
 ```
 ## Component
 
-Componenet can be search bar and header or about footer etc. Mainly we can reuse 
+Componenet can be search bar and header, about and footer etc. Mainly we can reuse the header components for all the pages.
+
+I have Created a Home.vue file and create a component name HomeComp
+```
+<template>
+    <h1>Home component</h1>
+</template>
+<script>
+export default {
+    name:'HomeComp',
+}
+</script>
+```
+
+And I have imported it in app.vue file as
+```
+<template>
+  <img alt="Vue logo" src="./assets/logo.png">
+  <HelloWorld msg="Welcome to code Step by Step"/>
+  <HomeComp />
+</template>
+
+<script>
+import HelloWorld from './components/HelloWorld.vue'
+import HomeComp from './components/Home.vue'
+export default {
+  name: 'App',
+  components: {
+      HelloWorld,
+      HomeComp,
+  }
+}
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
+
+```
+
+Add some css and apply scope so that stype can be binded to a component and willm not affect stype of other component:
+```
+<template>
+    <h1>Home component</h1>
+</template>
+<script>
+export default {
+    name:'HomeComp',
+}
+</script>
+
+<style scoped>
+    h1{
+        color:red
+    }
+</style>
+```
