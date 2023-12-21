@@ -698,3 +698,130 @@ h1 {
 }
 </style>
 ```
+
+### Day 3
+
+## Class Binding 
+Add simple dynamic class. class came from js dynamically.
+Change class on Button click
+Dynamic class with functions
+```
+<template>
+<h1>Class Binding</h1>
+<h2 :class="applystyle">Home Component</h2>
+<button v-on:click="colorfull=!colorfull">Apply Style</button>
+</template>
+
+<script>
+export default {
+    name: 'HomeComp',
+    data() {
+        return {
+            colorfull: true
+        }
+    },
+    computed: {
+        applystyle() {
+            return {
+
+                green: this.colorfull,
+                err: true,
+                other: true
+
+            }
+
+        }
+    }
+
+}
+</script>
+
+<style scoped>
+h1 {
+    color: red
+}
+
+.green {
+    background-color: green;
+    width: 150px;
+    padding: 10px;
+}
+
+.err {
+    color: red;
+}
+
+.other {
+    font-size: 50px;
+}
+</style>
+
+```
+
+## Props
+Props is when we want to tranfer data between two components is called props 
+Data transfer in props
+What can we pass on props
+Home.vue is:
+```
+<template>
+<h1>Props</h1>
+<StudentNew :name="name" />
+<TeacherNew name="Peter" />
+</template>
+
+<script>
+import StudentNew from './Students.vue'
+import TeacherNew from './Teacher.vue'
+
+export default {
+    name: 'HomeComp',
+    components: {
+        StudentNew,
+        TeacherNew
+    },
+    data(){
+        return{
+            name: "bruce"
+        }
+    }
+
+}
+</script>
+
+<style scoped>
+h1 {
+    color: red
+}
+</style>
+```
+Students.vue is:
+```
+<template>
+<h2>Student Name is : {{ name }}</h2>
+</template>
+
+<script>
+export default {
+    name: 'StudentNew',
+    props: {
+        name: String
+    }
+}
+</script>
+
+```
+Teacher.vue is:
+```
+<template>
+    <h2>Teacher Name is: {{ name }}</h2>
+    </template>
+    <script>
+    export default{
+        name:'TeacherNew',
+        props: {
+        name: String
+    }
+    }
+    </script>
+```
