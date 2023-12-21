@@ -886,3 +886,259 @@ export default {
 }
 </script>
 ```
+## Ref
+Ref is used in react also. it is used to get/set/fetch form value 
+Make input field and apply ref
+Operations with ref
+```
+<template>
+<h1>Ref in Vue js 3</h1>
+<input type="text" ref="input" />
+<button v-on:click="getData">Click Me</button>
+</template>
+
+<script>
+
+export default {
+    name: 'HomeComp',
+    methods:{
+        getData()
+            {
+            this.$refs.input.focus();
+            let val=this.$refs.input.value;
+            console.warn(val)
+            this.$refs.input.style.color="red";
+            }
+        
+    }
+
+}
+</script>
+
+<style scoped>
+h1 {
+    color: red
+}
+</style>
+
+```
+## Simple form
+Define some input field
+apply two way binding
+Print and Submit Value
+```
+<template>
+<h1>Simple form</h1>
+<p>
+    {{ form }}
+</p>
+<form>
+    <label>Email</label>
+    <input type="text" placeholder="Enter Email" v-model="form.email" />
+    <br />
+    <br />
+    <label>Password</label>
+    <input type="password" placeholder="Enter Password" v-model="form.password" />
+    <button type="button" v-on:click="login">Click Me</button>
+</form>
+</template>
+
+<script>
+export default {
+    name: 'HomeComp',
+    data()
+    {
+        return{
+            form:{
+                email:'',
+                password:''
+            }
+        }
+    },
+    methods:{
+        login()
+        {
+            console.warn("login data",this.form)
+        }
+    }
+
+}
+</script>
+
+<style scoped>
+h1 {
+    color: red
+}
+</style>
+
+```
+## Advance Form
+Contine of last form
+Add radio button, checkbox, Select box
+Define Propert and bind value
+Print and submit value
+```
+<template>
+<h1>Simple form</h1>
+<p>
+    {{ form }}
+</p>
+<form>
+    <label>Email</label>
+    <input type="text" placeholder="Enter Email" v-model="form.email" />
+    <br />
+    <br />
+    <label>Password</label>
+    <input type="password" placeholder="Enter Password" v-model="form.password" />
+    <br />
+    <br />
+    <select v-model="form.country">
+        <option>India</option>
+        <option>US</option>
+        <option>China</option>
+    </select>
+    <br />
+    <br />
+    <h3>Technology</h3>
+    <label>Html</label>
+    <input type="checkbox" value="html" v-model="form.technology" />
+    <br />
+    <br />
+    <label>Java</label>
+
+    <input type="checkbox" value="java" v-model="form.technology" />
+    <br />
+    <br />
+    <h3>Gender</h3>
+    <label>Male</label>
+
+    <input type="radio" value="male" name="gender" v-model="form.gender" />
+    <label>Female</label>
+
+    <input type="radio" value="female" name="gender" v-model="form.gender" />
+
+    <button type="button" v-on:click="login">Click Me</button>
+</form>
+</template>
+
+<script>
+export default {
+    name: 'HomeComp',
+    data() {
+        return {
+            form: {
+                email: '',
+                password: '',
+                country: '',
+                technology: [],
+                gender: ''
+            }
+        }
+    },
+    methods: {
+        login() {
+            console.warn("login data", this.form)
+        }
+    }
+
+}
+</script>
+
+<style scoped>
+h1 {
+    color: red
+}
+</style>
+```
+## Form Validation
+add error property
+apply loop over form files and collect error
+Use for loop to show error
+```
+<template>
+<h1>Simple form</h1>
+<ul>
+    <li v-for="item in error" v-bind:key="item">
+        {{ item }} not valid
+    </li>
+</ul>
+<form>
+    <label>Email</label>
+    <input type="text" placeholder="Enter Email" v-model="form.email" />
+    <br />
+    <br />
+    <label>Password</label>
+    <input type="password" placeholder="Enter Password" v-model="form.password" />
+    <br />
+    <br />
+    <select v-model="form.country">
+        <option>India</option>
+        <option>US</option>
+        <option>China</option>
+    </select>
+    <br />
+    <br />
+    <h3>Technology</h3>
+    <label>Html</label>
+    <input type="checkbox" value="html" v-model="form.technology" />
+    <br />
+    <br />
+    <label>Java</label>
+
+    <input type="checkbox" value="java" v-model="form.technology" />
+    <br />
+    <br />
+    <h3>Gender</h3>
+    <label>Male</label>
+
+    <input type="radio" value="male" name="gender" v-model="form.gender" />
+    <label>Female</label>
+
+    <input type="radio" value="female" name="gender" v-model="form.gender" />
+
+    <button type="button" v-on:click="login">Click Me</button>
+</form>
+</template>
+
+<script>
+export default {
+    name: 'HomeComp',
+    data() {
+        return {
+            form: {
+                email: '',
+                password: '',
+                country: '',
+                technology: [],
+                gender: ''
+            },
+            error: [],
+        }
+    },
+    methods: {
+        login() {
+            this.error = [];
+            for (const item in this.form) {
+                if (this.form[item] == "" || this.form[item].length === 0) {
+                    this.error.push(item)
+                }
+                if (this.error.length === 0) {
+                    alert("error")
+                }
+            }
+            console.warn("login data", this.form, this.error)
+        }
+    }
+
+}
+</script>
+
+<style scoped>
+h1 {
+    color: red
+}
+</style>
+
+```
+## Modifiers
+what is form modifiers and how to use modifiers.
