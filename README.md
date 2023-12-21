@@ -825,3 +825,64 @@ Teacher.vue is:
     }
     </script>
 ```
+## Send Clild Data to Parent Component
+Make Clild Component. Inner componet is child
+Pass data Function as Props
+Share Clild Component with parent
+Parent is home.vue:
+```
+<template>
+<h1>{{ childuser }}</h1>
+<UserNew :getUser="getuserName" />
+</template>
+
+<script>
+import UserNew from './User.vue'
+
+export default {
+    name: 'HomeComp',
+    data(){
+        return{
+            childuser:""
+        }
+    },
+    components: {
+        UserNew
+    },
+    methods: {
+        getuserName(name) {
+            this.childuser=name
+        }
+    }
+
+}
+</script>
+
+<style scoped>
+h1 {
+    color: red
+}
+</style>
+```
+child is User.vue 
+```
+<template>
+<h2>User Component</h2>
+<button v-on:click="getUser(userName)" >Send User Name</button>
+</template>
+
+<script>
+export default {
+    name: "UserNew",
+    data() {
+        return {
+            userName: "peter"
+        }
+    },
+    props: {
+        getUser:Function
+    
+    }
+}
+</script>
+```
