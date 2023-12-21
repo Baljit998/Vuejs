@@ -1141,4 +1141,94 @@ h1 {
 
 ```
 ## Modifiers
-what is form modifiers and how to use modifiers.
+what is form modifiers and how to use modifiers. It is alos called form modifier.
+When we use two way binding using v model like changing value after v mode. we apply these on input fields
+```
+<template>
+<h1>Form Modifiers</h1>
+<input type="number" v-model.number.lazy="data" />
+<h2>Data is{{ typeof(data) }}</h2>
+<h2>Data is{{ data }}</h2>
+
+</template>
+
+<script>
+export default {
+    name: 'HomeComp',
+    data(){
+        return{
+            data:''
+        }
+    }
+
+
+}
+</script>
+
+<style scoped>
+h1 {
+    color: red
+}
+</style>
+
+```
+## Non-Props
+Make a Child Component.
+Pass Non-prop data
+Difference between Props and non prop data.
+In home.vue
+```
+<template>
+<h1>Non-Props Data</h1>
+<UserNew data="some data" xyz="user-cmp" />
+
+
+</template>
+
+<script>
+import UserNew from './User.vue'
+export default {
+    name: 'HomeComp',
+    components:{
+        UserNew
+    }
+ 
+
+}
+</script>
+
+<style scoped>
+h1 {
+    color: red
+}
+</style>
+
+```
+In user.vue
+```
+<template>
+<h1>Non-Props Data</h1>
+<UserNew data="some data" xyz="user-cmp" />
+
+
+</template>
+
+<script>
+import UserNew from './User.vue'
+export default {
+    name: 'HomeComp',
+    components:{
+        UserNew
+    }
+ 
+
+}
+</script>
+
+<style scoped>
+h1 {
+    color: red
+}
+</style>
+
+```
